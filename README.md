@@ -9,6 +9,7 @@ To make everything work smoothly, we need to do things in a specific order:
 3.  **S3 Hosting** (put your website on the internet).
 
 ---
+<img width="1024" height="1536" alt="ChatGPT Image Jan 19, 2026, 06_48_19 PM" src="https://github.com/user-attachments/assets/bd8645bf-5e92-4fe6-8282-388cd32fe534" />
 
 ## Phase 1: The Backend (Engine Room)
 
