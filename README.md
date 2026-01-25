@@ -96,43 +96,62 @@ Now we connect your local code to the live AWS backend.
 
 Now that the code works, let's put it on the internet using an S3 Bucket.
 
-### Step 1: Create Bucket
-1.  Search for **S3** and click **Create bucket**.
-2.  **Bucket name**: `my-unique-form-app-1234` (must be globally unique).
-3.  **Object Ownership**: Select **ACLs enabled**.
-4.  **Block Public Access settings**:
-    *   **Uncheck** "Block all public access".
-    *   Check the warning box "I acknowledge that...".
-5.  Click **Create bucket**.
+# Website Hosting on AWS S3 with CloudFront
 
-### Step 2: Upload Files
-1.  Click on your new bucket name.
-2.  Click **Upload**.
-3.  Drag and drop these 3 files from your `frontend` folder:
-    *   `index.html`
-    *   `style.css`
-    *   `script.js`
-4.  Click **Upload**.
+This guide explains how to host a static portfolio website on AWS S3 and distribute it via CloudFront for enhanced performance and security.
 
-### Step 3: Make it Public (Static Website Hosting)
-1.  Go to the **Properties** tab of your bucket.
-2.  Scroll to the very bottom: **Static website hosting**.
-3.  Click **Edit**.
-4.  Select **Enable**.
-5.  **Index document**: `index.html`.
-6.  Click **Save changes**.
+---
 
-### Step 4: Final Permissions
-1.  Go to the **Objects** tab.
-2.  Select all 3 files you uploaded.
-3.  Click **Actions** -> **Make public using ACL**.
-4.  Click **Make public**.
+## Step 1: Create an S3 Bucket
 
-### Step 5: Visit Your Site!
-1.  Go back to **Properties** -> **Static website hosting**.
-2.  Click the **Bucket website endpoint** link.
-3.  Your site is live! Fill out the form and hit Submit.
+1. Go to the **S3** console and create a new bucket.
+2. Configure the following settings:
+   - **Enable ACL**
+   - **Disable Block Public Access**
+   - **Enable Versioning**
 
+---
+
+## Step 2: Upload Files
+
+1. Upload your portfolio files and folders to the S3 bucket.
+2. Set permissions to **public** so that the content is accessible over the web.
+
+---
+
+## Step 3: Enable Static Website Hosting
+
+1. Go to the **Properties** tab of your S3 bucket.
+2. Enable **Static Website Hosting**.
+3. Set the **index document** to `index.html`.
+
+---
+
+## Step 4: Configure CloudFront Distribution
+
+1. Go to the **CloudFront** console and create a new distribution.
+2. Configure the distribution settings:
+   - **Name**: Give a descriptive name
+   - **Website/App Type**: Single website or application
+   - **Origin Domain**: Select your S3 bucket web endpoint
+   - **Origin Settings**: Choose the S3 bucket created in Step 1
+   - **Redirect HTTP to HTTPS** for secure access
+   - **Enable WAF Security Protections** for additional security
+   -  **Use domain as shown in ACM** for access
+   - **Add Subdomain** for access. Ex: www
+   - **Default Root Object**: `index.html`
+
+---
+
+## Notes
+
+- Ensure that your S3 bucket policy allows **public read** access.
+- Use **AWS Certificate Manager (ACM)** to attach SSL certificates for HTTPS.
+- Versioning on the bucket helps manage updates and rollback if needed.
+
+---
+
+Your website is now hosted on S3 and distributed securely via CloudFront!
 ---
 
 **You're Done!** 🎉
