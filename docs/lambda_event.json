@@ -1,0 +1,8 @@
+{
+    "body": "{\"name\":\"John Doe\",\"age\":25,\"occupation\":\"Software Engineer\",\"phoneNumber\":\"1234567890\",\"address\":\"123 Main St, City, Country\",\"pincode\":\"123456\",\"annualIncome\":50000}"
+}
+
+
+{
+    "body": "{\"name\":\"Mohd Rayees\",\"age\":26,\"occupation\":\"DevOps Engineer\",\"phoneNumber\":\"8899776655\",\"address\":\"145 city town gachibowli\",\"pincode\":\"500014\",\"annualIncome\":500000}"
+}
